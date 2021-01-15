@@ -5,7 +5,14 @@ class Create extends React.Component {
         question: "",
         answer: "",
         selection: [],
-        completed: false
+        completed: false,
+        alert: false,
+    }
+    showAlert = () => {
+        this.setState({ alert: true });
+        setTimeout(() => {
+            this.setState({ alert: false });
+        }, 2000);
     }
     handleChange = event => {
         this.setState({
@@ -62,9 +69,17 @@ class Create extends React.Component {
                         <input required id="selection4" className="form-control" type="text" onChange={this.handleChange} />
                     </div>
                     <br />
-                    <div className="col-sm-2">
-                        <input className="btn btn-success" type="submit" value="Create" />
+                    <div className="col-sm-5" style={{ display: "flex", justifyContent: "space-between" }}>
+                        <button className="btn btn-secondary">Back</button>
+                        <input onClick={this.showAlert} className="btn btn-success" type="submit" value="Create" />
                     </div>
+                    {this.state.alert ?
+                        (<div className="row" style={{ color: "green" }}>
+                            Successfully added!
+                        </div>)
+                        :
+                        null
+                    }
                 </form>
             </div>
         )

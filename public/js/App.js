@@ -1,6 +1,6 @@
 class App extends React.Component {
   state = {
-    points: 0,
+    points: 5,
   }
   playAgain = () => {
     this.setState({ points: 0 })

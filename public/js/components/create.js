@@ -1,5 +1,4 @@
-// import React from "react";
-// import axios from "axios";
+
 
 class Create extends React.Component {
     state = {
@@ -62,4 +61,3 @@ class Create extends React.Component {
     }
 }
 
-// export default Create;

@@ -1,10 +1,3 @@
-// import './App.css';
-// import React from 'react';
-
-// //COMPONENTS
-// import Winner from "./components/winner"
-// import Game from "./components/game"
-
 class App extends React.Component {
   state = {
     points: 0,
@@ -21,4 +14,4 @@ class App extends React.Component {
   } //End of render
 }//End of class
 
-// export default App;
+

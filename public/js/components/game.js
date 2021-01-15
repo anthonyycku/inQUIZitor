@@ -1,4 +1,4 @@
-import Create from "./create"
+// import Create from "./create"
 
 function Game() {
     return (
@@ -8,4 +8,4 @@ function Game() {
     )
 }
 
-export default Game;
+// export default Game;

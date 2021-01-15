@@ -1,9 +1,9 @@
-import './App.css';
-import React from 'react';
+// import './App.css';
+// import React from 'react';
 
-//COMPONENTS
-import Winner from "./components/winner"
-import Game from "./components/game"
+// //COMPONENTS
+// import Winner from "./components/winner"
+// import Game from "./components/game"
 
 class App extends React.Component {
   state = {
@@ -21,4 +21,4 @@ class App extends React.Component {
   } //End of render
 }//End of class
 
-export default App;
+// export default App;

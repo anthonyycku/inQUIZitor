@@ -36,25 +36,35 @@ class Create extends React.Component {
     }
     render() {
         return (
-            <div id="create-container">
+            <div style={{ border: "grey 2px solid", width: "800px", padding: "20px" }} id="container">
                 <h2>Create New Question</h2>
+
                 <form onSubmit={this.handleSubmit}>
-                    <h4 htmlFor="question">Question</h4>
-                    <input id="question" type="text" onChange={this.handleChange} />
-
-                    <h4 htmlFor="answer">Answer</h4>
-                    <input id="answer" type="text" onChange={this.handleChange} />
-
-                    <h4 htmlFor="selection1">Option 1</h4>
-                    <input id="selection1" type="text" onChange={this.handleChange} />
-                    <h4 htmlFor="selection2">Option 2</h4>
-                    <input id="selection2" type="text" onChange={this.handleChange} />
-                    <h4 htmlFor="selection3">Option 3</h4>
-                    <input id="selection3" type="text" onChange={this.handleChange} />
-                    <h4 htmlFor="selection4">Option 4</h4>
-                    <input id="selection4" type="text" onChange={this.handleChange} />
-
-                    <input type="submit" value="Create" />
+                    <div className="row">
+                        <div className="col-sm-7">
+                            <label htmlFor="question" className="form-label"><strong>Question</strong> </label>
+                            <input required id="question" className="form-control" type="text" onChange={this.handleChange} />
+                        </div>
+                        <div className="col-sm-3">
+                            <label htmlFor="answer" className="form-label"><strong>Answer</strong> </label>
+                            <input required id="answer" className="form-control" type="text" onChange={this.handleChange} />
+                        </div>
+                    </div>
+                    <br />
+                    <div className="col-sm-5">
+                        <label className="form-label" htmlFor="selection1">Option 1</label>
+                        <input required id="selection1" className="form-control" type="text" onChange={this.handleChange} />
+                        <label className="form-label" htmlFor="selection2">Option 2</label>
+                        <input required id="selection2" className="form-control" type="text" onChange={this.handleChange} />
+                        <label className="form-label" htmlFor="selection3">Option 3</label>
+                        <input required id="selection3" className="form-control" type="text" onChange={this.handleChange} />
+                        <label className="form-label" htmlFor="selection4">Option 4</label>
+                        <input required id="selection4" className="form-control" type="text" onChange={this.handleChange} />
+                    </div>
+                    <br />
+                    <div className="col-sm-2">
+                        <input className="btn btn-success" type="submit" value="Create" />
+                    </div>
                 </form>
             </div>
         )

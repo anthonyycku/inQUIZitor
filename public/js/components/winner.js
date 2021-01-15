@@ -6,4 +6,4 @@ function Winner() {
     )
 }
 
-export default Winner;
+// export default Winner;

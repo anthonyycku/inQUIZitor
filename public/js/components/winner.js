@@ -5,5 +5,3 @@ function Winner() {
         </div>
     )
 }
-
-// export default Winner;

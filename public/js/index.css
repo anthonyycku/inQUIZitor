@@ -15,7 +15,8 @@ body {
 }
 
 .grow {
-    animation: fadein 4s;
+    animation: fadein 1s, run 1s;
+
 }
 
 @keyframes fadein {
@@ -101,11 +102,12 @@ body {
     border-radius: 10px;
     width: 800px;
     padding: 20px;
-    background-color: cyan;
+    background: rgb(37, 11, 241);
+    background: linear-gradient(0deg, rgba(37, 11, 241, 1) 0%, rgba(0, 194, 255, 1) 35%);
 }
 
 .pointDiv {
-    width: 150px;
+    width: 250px;
     overflow: visible;
 }
 
@@ -137,7 +139,7 @@ body {
 }
 
 .sidePanel {
-    height: 400px;
+    height: auto;
     width: 30px;
     background: linear-gradient(-45deg, transparent 25%, #2863f7 25%, #008adf 50%, transparent 50%, transparent 75%, #00f2ee 75%);
     background-size: 15px 15px;
@@ -153,4 +155,12 @@ body {
     to {
         background-position: 200%;
     }
+}
+
+.rules {
+    padding: 5px;
+    width: 650px;
+    color: crimson;
+    border: 2px purple solid;
+    border-radius: 10px;
 }

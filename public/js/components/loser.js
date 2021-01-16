@@ -24,7 +24,7 @@ const Loser = props => {
 					alt=''
 				/>
 				<br />
-				<button style={{ width: "500px" }} onClick={props.playAgain} className='btn btn-outline-primary'>
+				<button style={{ width: "500px" }} onClick={props.playAgain} className='btn btn-primary'>
 					<h1>Try Again?</h1>
 				</button>
 			</div>

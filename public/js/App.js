@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     const { points } = this.state;
 
-    if (points > -1 && points < 5) {
+    if (points > -1 && points < 10) {
       return (
         <Game
           incrementPoints={this.incrementPoints}

@@ -86,15 +86,20 @@ class Game extends React.Component {
             return (
                 <div id="megaContainer">
                     <div id="container">
-                        <h1 style={{ color: "red" }}> Welcome to the inQUIZitor</h1>
-                        <p style={{ color: "red" }}>Reach 5 points to win!</p>
+                        <h1 style={{ color: "blue" }}><strong>Welcome to the inQUIZitor</strong> </h1>
+                        <div className="row rules">
+                            <h5>Rules:</h5>
+                            <h6 style={{ color: "green" }}>+1 for correct answer</h6>
+                            <h6 style={{ color: "red" }}>-1 for wrong answer</h6>
+                            <h6 style={{ color: "purple" }}><strong>Reach 10 points to win!</strong></h6>
+                        </div>
                         <br />
                         <br />
                         <div className="pointDiv">
-                            <h3 className="currentPoints">
+                            <h1 className="currentPoints">
                                 <span >Points: </span>
                                 {this.props.points}
-                            </h3>
+                            </h1>
                             {addPoint > 0 ?
                                 AddPoint("green", "+1")
                                 :
@@ -149,8 +154,8 @@ class Game extends React.Component {
 
 function AddPoint(color, point) {
     return (
-        <h3 style={{ color: color }} className="points">
+        <h1 style={{ color: color }} className="points">
             {point}
-        </h3>
+        </h1>
     )
 }

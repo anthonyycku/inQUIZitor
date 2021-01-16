@@ -23,7 +23,11 @@ body {
         opacity: 1;
     }
 
-    80% {
+    70% {
+        opacity: 1
+    }
+
+    100% {
         opacity: 0;
     }
 }

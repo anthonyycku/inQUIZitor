@@ -71,7 +71,7 @@ class Create extends React.Component {
         this.setState({ alert: true });
         setTimeout(() => {
             this.setState({ alert: false });
-        }, 4000);
+        }, 3500);
     }
     handleChange = event => {
         this.setState({
@@ -102,7 +102,7 @@ class Create extends React.Component {
     }
     render() {
         return (
-            <div style={{ border: "grey 2px solid", width: "800px", padding: "20px" }} id="container">
+            <div style={{ border: "grey 2px solid", height: "550px", width: "800px", padding: "20px" }} id="container">
                 <h2>Create New Question</h2>
 
                 <form onSubmit={this.handleSubmit}>
@@ -128,20 +128,23 @@ class Create extends React.Component {
                         <input required id="selection4" className="form-control" type="text" onChange={this.handleChange} />
                     </div>
                     <br />
-                    <div className="col-sm-5" style={{ display: "flex", justifyContent: "space-between" }}>
-                        <button onClick={() => this.props.setPage("game")} className="btn btn-secondary">Back</button>
-                        <input onClick={this.showAlert} className="btn btn-success" type="submit" value="Create" />
+                    <div className="row">
+                        <div className="col-sm-5" style={{ display: "flex", justifyContent: "space-between" }}>
+                            <button onClick={() => this.props.setPage("game")} className="btn btn-secondary">Back</button>
+                            <input onClick={this.showAlert} className="btn btn-success" type="submit" value="Create" />
+                        </div>
+                        <br />
+                        {this.state.alert ?
+                            (<div className="col-sm-5 grow growOut" style={{ color: "green" }}>
+                                <p>Successfully added!</p>
+                            </div>)
+                            :
+                            null
+                        }
                     </div>
-                    <br />
-                    {this.state.alert ?
-                        (<div className="row grow growOut" style={{ color: "green" }}>
-                            <p>Successfully added!</p>
-                        </div>)
-                        :
-                        null
-                    }
                 </form>
             </div>
+
         )
     }
 }

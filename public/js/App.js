@@ -31,6 +31,7 @@ class App extends React.Component {
           decrementPoints={this.decrementPoints}
           points={this.state.points}
           gameOver={this.gameOver}
+          playAgain={this.playAgain}
         />
       );
     } else if (points > 4) {

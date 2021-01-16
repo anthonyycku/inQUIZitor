@@ -97,6 +97,7 @@ body {
 
 #container {
     display: flex;
+    height: 560px;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;

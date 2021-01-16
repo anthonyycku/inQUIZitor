@@ -7,8 +7,7 @@ class Game extends React.Component {
 		}
 	};
 
-	findQuestion = event => {
-		event.preventDefault();
+	findQuestion = () => {
 		axios.get('/quiz').then(res => {
 			const randQuiz = Math.floor(Math.random() * res.data.length);
 			const { quizBox } = this.state;
@@ -28,18 +27,33 @@ class Game extends React.Component {
 				quizBox.push(res.data[randQuiz]._id);
 			}
 		});
-
 		this.hideAnswer();
 	};
 
-	displayAnswer = event => {
-		event.preventDefault();
-		this.setState({
-			displayAnswer: 'block'
-		});
+	handleCheckAnswer = event => {
+		const { answer } = this.state.quiz;
+		if (answer === event.target.innerText) {
+			this.props.incrementPoints();
+			this.findQuestion();
+		} else {
+			this.props.decrementPoints();
+			this.findQuestion();
+		}
 	};
 
-	hideAnswer = event => {
+	displayAnswer = () => {
+		if (this.state.quiz.answer) {
+			this.setState({
+				displayAnswer: 'block'
+			});
+
+			setTimeout(() => {
+				this.props.gameOver();
+			}, 2000);
+		}
+	};
+
+	hideAnswer = () => {
 		this.setState({
 			displayAnswer: 'none'
 		});
@@ -48,34 +62,33 @@ class Game extends React.Component {
 	render = () => {
 		return (
 			<div>
-				<h1> Welcome to inQUIZitor</h1>
-function Game() {
-    return (
-        <div>
-            <Create />
-
-        </div>
-    )
-}
-
-				<form onSubmit={this.findQuestion}>
-					<button>Get inQUIZited</button>
-				</form>
-
-				<div>{this.state.quiz.question}</div>
+				<h1> Welcome to the inQUIZitor</h1>
+				<h3>
+					<span>Points: </span>
+					{this.props.points}
+				</h3>
+				<h3>
+					<span>Question: </span>
+					{this.state.quiz.question ? (
+						<div>{this.state.quiz.question}</div>
+					) : (
+						<p>Are you ready to be inQUIZitive?</p>
+					)}
+				</h3>
 				<div>
 					{this.state.quiz.selection.map((el, id) => (
-						<div key={id}>
-							<button>{el}</button>
-						</div>
+						<button key={id} onClick={this.handleCheckAnswer}>
+							{el}
+						</button>
 					))}
 				</div>
+				<button onClick={this.findQuestion}>Get inQUIZitive</button>
 
 				<div>
 					<button onClick={this.displayAnswer}>Reveal Answer</button>
 					<div style={{ display: this.state.displayAnswer }}>
 						{this.state.displayAnswer ? (
-							<div>{this.state.quiz.answer}</div>
+							<h5>{this.state.quiz.answer}</h5>
 						) : null}
 					</div>
 				</div>

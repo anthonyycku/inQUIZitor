@@ -1,12 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const quizSchema = new mongoose.Schema({
-    question: String,
-    answer: String,
-    selection: [String],
-    completed: Boolean
-})
+	question: String,
+	answer: String,
+	selection: [String]
+});
 
-const Quiz = mongoose.model("Quiz", quizSchema);
+const Quiz = mongoose.model('Quiz', quizSchema);
 
 module.exports = Quiz;

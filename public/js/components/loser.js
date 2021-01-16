@@ -12,7 +12,7 @@ const Loser = props => {
 					border: '2px grey solid'
 				}}>
 				<h1 className='loser' style={{ color: 'green' }}>
-					YOU SUCK!!!
+					BETTER LUCK NEXT TIME
 				</h1>
 
 				<h2 className='loser' style={{ color: 'red' }}>
@@ -20,12 +20,12 @@ const Loser = props => {
 				</h2>
 
 				<img
-					src='https://media1.tenor.com/images/695c6369b1862d228448a48c395a0d50/tenor.gif?itemid=16147647'
+					src='https://media.giphy.com/media/3ohhwH6yMO7ED5xc7S/giphy.gif'
 					alt=''
 				/>
-
-				<button onClick={props.playAgain} className='btn btn-outline-primary'>
-					Try Again?
+				<br />
+				<button style={{ width: "500px" }} onClick={props.playAgain} className='btn btn-outline-primary'>
+					<h1>Try Again?</h1>
 				</button>
 			</div>
 		</div>

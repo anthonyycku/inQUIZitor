@@ -10,7 +10,7 @@ class Create extends React.Component {
         this.setState({ alert: true });
         setTimeout(() => {
             this.setState({ alert: false });
-        }, 4000);
+        }, 1000);
     };
     handleChange = event => {
         this.setState({

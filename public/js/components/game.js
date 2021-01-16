@@ -49,6 +49,14 @@ class Game extends React.Component {
 		return (
 			<div>
 				<h1> Welcome to inQUIZitor</h1>
+function Game() {
+    return (
+        <div>
+            <Create />
+
+        </div>
+    )
+}
 
 				<form onSubmit={this.findQuestion}>
 					<button>Get inQUIZited</button>

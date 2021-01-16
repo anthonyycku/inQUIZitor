@@ -6,7 +6,7 @@ const Winner = props => {
 
                 <h2 className="winner" style={{ color: "red" }}>You reached 5 points!</h2>
 
-                <img src="https://media1.tenor.com/images/695c6369b1862d228448a48c395a0d50/tenor.gif?itemid=16147647" alt="" />
+                <img src="https://media1.tenor.com/images/c9c828a12a5cfb5133479d4eac74c9f6/tenor.gif?itemid=15171828" alt="" />
 
                 <button onClick={props.playAgain} className="btn btn-outline-primary">Play Again?</button>
             </div>

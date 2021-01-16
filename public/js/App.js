@@ -1,19 +1,42 @@
 class App extends React.Component {
   state = {
-    points: 0,
-  }
+    points: 0
+  };
+
   playAgain = () => {
-    this.setState({ points: 0 })
-  }
+    this.setState({ points: 0 });
+  };
+
+  gameOver = () => {
+    this.setState({ points: -1 });
+  };
+
+  incrementPoints = () => {
+    const { points } = this.state;
+    this.setState({ points: points + 1 });
+  };
+
+  decrementPoints = () => {
+    const { points } = this.state;
+    this.setState({ points: points - 1 });
+  };
+
   render() {
     const { points } = this.state;
 
-    if (points < 4) {
-      return <Game />
+    if (points > -1 && points < 5) {
+      return (
+        <Game
+          incrementPoints={this.incrementPoints}
+          decrementPoints={this.decrementPoints}
+          points={this.state.points}
+          gameOver={this.gameOver}
+        />
+      );
+    } else if (points > 4) {
+      return <Winner playAgain={this.playAgain} />;
     } else {
-      return <Winner playAgain={this.playAgain} />
+      return <Loser playAgain={this.playAgain} />;
     }
   } //End of render
-}//End of class
-
-
+} //End of class

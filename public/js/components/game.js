@@ -4,7 +4,13 @@ class Game extends React.Component {
 		quiz: {
 			displayAnswer: 'none',
 			selection: []
-		}
+		},
+		page: 'game'
+	};
+	setPage = goto => {
+		this.setState({
+			page: goto
+		});
 	};
 
 	findQuestion = () => {

@@ -9,10 +9,34 @@ class Game extends React.Component {
         addPoint: 0,
         gameStart: false
     };
+
+    randomSelect = () => {
+        const { selection } = this.state.quiz
+        for (let i = selection.length - 1; i >= 0; i--) {
+            let randomIndex = Math.floor(Math.random() * selection.length);
+            let temp = selection[i];
+            selection[i] = selection[randomIndex];
+            selection[randomIndex] = temp;
+        }
+        this.setState({
+            selection: selection
+        })
+    }
     setPage = goto => {
         this.setState({
             page: goto
         });
+        if (goto === "game") {
+            this.setState({
+                gameStart: false,
+                quizBox: [],
+                quiz: {
+                    displayAnswer: "none",
+                    selection: []
+                }
+            })
+        }
+        this.props.playAgain();
     };
     addPointAnimation = (point) => {
         this.setState({
@@ -36,6 +60,7 @@ class Game extends React.Component {
                         quiz: res.data[randQuiz]
                     });
                     quizBox.push(res.data[randQuiz]._id);
+                    this.randomSelect();
                 } else {
                     this.findQuestion(event);
                 }
@@ -47,6 +72,7 @@ class Game extends React.Component {
             }
         });
         this.hideAnswer();
+
     };
 
     handleCheckAnswer = event => {
@@ -81,7 +107,7 @@ class Game extends React.Component {
     };
 
     render = () => {
-        const { page, addPoint, gameStart } = this.state;
+        const { page, addPoint, gameStart, quiz } = this.state;
         if (page === "game") {
             return (
                 <div id="megaContainer">
@@ -141,6 +167,7 @@ class Game extends React.Component {
                         <br />
                         <div style={{ width: "100%" }}>
                             <button onClick={() => this.setPage("create")} className="btn btn-success">Create</button>
+                            <button onClick={() => this.setPage("edit")} className="btn btn-warning">Edit</button>
                         </div>
                     </div >
                     <div className="sidePanel"></div>
@@ -148,6 +175,8 @@ class Game extends React.Component {
             );
         } else if (page === "create") {
             return <Create setPage={this.setPage} />
+        } else if (page === "edit") {
+            return <Edit entry={quiz} setPage={this.setPage} />
         }
     };
 }

@@ -6,13 +6,13 @@ class Create extends React.Component {
         answer: "",
         selection: [],
         completed: false,
-        alert: false,
+        alert: false
     }
     showAlert = () => {
         this.setState({ alert: true });
         setTimeout(() => {
             this.setState({ alert: false });
-        }, 2000);
+        }, 4000);
     }
     handleChange = event => {
         this.setState({
@@ -73,9 +73,10 @@ class Create extends React.Component {
                         <button className="btn btn-secondary">Back</button>
                         <input onClick={this.showAlert} className="btn btn-success" type="submit" value="Create" />
                     </div>
+                    <br />
                     {this.state.alert ?
-                        (<div className="row" style={{ color: "green" }}>
-                            Successfully added!
+                        (<div className="row grow growOut" style={{ color: "green" }}>
+                            <p>Successfully added!</p>
                         </div>)
                         :
                         null

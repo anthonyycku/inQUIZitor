@@ -41,3 +41,10 @@ class App extends React.Component {
     }
   } //End of render
 } //End of class
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

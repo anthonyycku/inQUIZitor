@@ -157,85 +157,88 @@ class Game extends React.Component {
 		if (page === 'game') {
 			return (
 				<div>
-					<div className='d-flex row justify-content-center playboard m-0 p-5'>
-						<h1 className='title text-center p-0 m-0'>
-							<strong>Welcome to the inQUIZitor</strong>{' '}
-						</h1>
-						<div className='text-center px-0 py-2 text-danger mb-3'>
-							<h5>*Rules*</h5>
-							<p className='text-muted border border-2 border-dark rounded p-2 bg-dark'>
-								<strong className='text-success fs-5'>+1</strong> point,{' '}
-								<strong className='text-success fs-5'>+5</strong> seconds, for
-								correct answer
-							</p>
-							<p className='text-muted border border-2 border-dark rounded p-2 bg-dark'>
-								<strong className='text-danger fs-5'>-1 </strong> point,{' '}
-								<strong className='text-danger fs-5'>-2 </strong> seconds, for
-								wrong answer
-							</p>
-							<h6 className='text-warning border border-2 border-dark rounded p-2 bg-dark'>
-								<strong>Reach 10 points before timer runs out!</strong>
-							</h6>
+					<div className='d-flex row justify-content-center playboard m-0 p-4'>
+						{gameStart ? (
+							<h1 className='ylw-text-color text-center p-0 m-0'>
+								<strong>You can do it!</strong>{' '}
+							</h1>
+						) : (
+							<h1 className='ylw-text-color text-center p-0 m-0'>
+								<strong>Welcome to the inQUIZitor</strong>{' '}
+							</h1>
+						)}
+						{gameStart ? null : (
+							<div className='text-center px-0 py-2 text-muted'>
+								<h4 className='mb-3'>__________Rules__________</h4>
+								<p className='text-muted border rounded-3 border-0 p-2 bg-color-dark mb-1'>
+									<strong className='text-success fs-5'>+1</strong> point,{' '}
+									<strong className='text-success fs-5'>+5</strong> seconds, for
+									correct answer
+								</p>
+								<p className='text-muted border rounded-3 border-0 p-2 bg-color-dark mb-1'>
+									<strong className='text-danger fs-5'>-1 </strong> point,{' '}
+									<strong className='text-danger fs-5'>-2 </strong> seconds, for
+									wrong answer
+								</p>
+								<p className='text-muted border rounded-3 border-0 p-2 bg-color-dark mb-1'>
+									Reach <strong className='text-success fs-5'>10</strong> points
+									before timer runs out!
+								</p>
+							</div>
+						)}
+						<div className='text-center color-light'>
+							<span className='text-danger fs-5'>{seconds}</span> seconds left!
+							{addPoint > 0 ? AddPoint('green', '+5 seconds', 2) : null}
+							{addPoint < 0 ? AddPoint('red', '-2 seconds', 2) : null}
 						</div>
-						<br />
-						<div className='pointDiv text-center'>
-							<h2 className='currentPoints'>
+						<div className='text-center p-0 m-0'>
+							<h2 className='color-light currentPoints'>
 								<span>Points: </span>
 								{this.props.points}
 							</h2>
 							{addPoint > 0 ? AddPoint('green', '+1') : null}
 							{addPoint < 0 ? AddPoint('red', '-1') : null}
 						</div>
-						<h2 className='text-center'>
+						<p className='text-center ylw-text-color'>
 							{this.state.quiz.question ? (
-								<div>{this.state.quiz.question}</div>
+								<h3>{this.state.quiz.question}</h3>
 							) : (
-								<p>Are you ready to be inQUIZitive?</p>
+								<h4>Are you ready to be inQUIZitive?</h4>
 							)}
-						</h2>
-						<div className='options'>
+						</p>
+						<div className='text-center'>
 							{this.state.quiz.selection.map((el, id) => (
-								<button
-									className='btn btn-dark'
-									key={id}
-									onClick={this.handleCheckAnswer}>
-									{el}
-								</button>
+								<div>
+									<button
+										className='bg-btn-color ylw-text-color m-2 p-2 px-5 fs-5'
+										key={id}
+										onClick={this.handleCheckAnswer}>
+										{el}
+									</button>
+								</div>
 							))}
 						</div>
 						{gameStart ? null : (
 							<button
 								onClick={this.findQuestion}
-								className='btn btn-outline-danger'>
+								className='bg-btn-color ylw-text-color p-0'>
 								<h2>Get inQUIZitive</h2>
 							</button>
 						)}
-						<div
-							id='time'
-							className='row'
-							style={{ width: '100%', height: '60px' }}>
-							<div
-								className='col-sm-7'
-								style={{ display: 'flex', justifyContent: 'flex-end' }}>
-								<span className='seconds'>{seconds}</span> seconds left!
+						{gameStart ? null : (
+							<div className='mt-3 d-flex justify-content-center'>
+								<button
+									onClick={() => this.setPage('create')}
+									className='btn bg-btn-color ylw-text-color px-2 m-1 py-0'>
+									Create
+								</button>
+								<button
+									onClick={() => this.setPage('edit')}
+									className='btn bg-btn-color ylw-text-color px-2 m-1 py-0'>
+									Edit
+								</button>
 							</div>
-							<div className='col-sm-5'>
-								{addPoint > 0 ? AddPoint('green', '+5 seconds', 2) : null}
-								{addPoint < 0 ? AddPoint('red', '-2 seconds', 2) : null}
-							</div>
-						</div>
-						<div className='p-0'>
-							<button
-								onClick={() => this.setPage('create')}
-								className='btn btn-success m-0'>
-								Create
-							</button>
-							<button
-								onClick={() => this.setPage('edit')}
-								className='btn btn-warning'>
-								Edit
-							</button>
-						</div>
+						)}
 					</div>
 				</div>
 			);

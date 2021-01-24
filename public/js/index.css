@@ -1,218 +1,186 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap');
 
 body {
-    background-image: url("https://thumbs.gfycat.com/AnimatedDeficientAlleycat-size_restricted.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    justify-content: center;
+	background-image: url('https://thumbs.gfycat.com/AnimatedDeficientAlleycat-size_restricted.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-
 * {
-    font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis', sans-serif;
 }
 
 .grow {
-    animation: fadein 1s, run 1s;
-
+	animation: fadein 1s, run 1s;
 }
 
 @keyframes fadein {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    40% {
-        opacity: 1;
-    }
+	40% {
+		opacity: 1;
+	}
 
-    70% {
-        opacity: 1
-    }
+	70% {
+		opacity: 1;
+	}
 
-    100% {
-        opacity: 0;
-    }
+	100% {
+		opacity: 0;
+	}
 }
 
 .winner {
-    animation: party ease 1s infinite;
-
+	animation: party ease 1s infinite;
 }
 
 @keyframes party {
-    0% {
-        color: pink;
-    }
+	0% {
+		color: pink;
+	}
 
-    25% {
-        color: red;
-    }
+	25% {
+		color: red;
+	}
 
-    50% {
-        color: green;
-    }
+	50% {
+		color: green;
+	}
 
-    75% {
-        color: blue;
-    }
+	75% {
+		color: blue;
+	}
 
-    100% {
-        color: orange;
-    }
+	100% {
+		color: orange;
+	}
 }
 
 .points {
-    animation: fadein 1s, run 1s;
-
+	animation: fadein 1s, run 1s;
 }
 
 @keyframes fadein {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    40% {
-        opacity: 1;
-    }
+	40% {
+		opacity: 1;
+	}
 
-    70% {
-        opacity: 1
-    }
+	70% {
+		opacity: 1;
+	}
 
-    100% {
-        opacity: 0;
-    }
+	100% {
+		opacity: 0;
+	}
 }
 
 @keyframes run {
-    100% {
-        transform: translateX(20px);
-    }
+	100% {
+		transform: translateX(20px);
+	}
 }
 
-
-
-#container {
-    display: flex;
-    height: 560px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    width: 800px;
-    padding: 20px;
-    background: rgb(37, 11, 241);
-    background: linear-gradient(0deg, rgba(37, 11, 241, 1) 0%, rgba(0, 194, 255, 1) 35%);
-    box-shadow: 10px 0 rgb(255, 255, 255, 75%);
+.playboard {
+	background: linear-gradient(
+		0deg,
+		rgba(37, 11, 241, 0.5) 0%,
+		rgba(0, 194, 255, 0.9) 35%
+	);
+	height: 100vh;
+	width: 100vw;
 }
 
-.pointDiv {
-    width: 250px;
-    overflow: visible;
-    padding-left: 50px;
+.title {
+	color: blue;
 }
+
+/* .pointDiv {
+	overflow: visible;
+} */
 
 .pointDiv span {
-    color: blueviolet;
+	color: blueviolet;
 }
 
 .currentPoints {
-    display: inline-block;
+	display: inline-block;
 }
 
 .points {
-    display: inline-block;
+	display: inline-block;
 }
 
 .options {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
 }
 
 .btn-dark {
-    width: 175px;
+	width: 175px;
 }
 
 .btn-dark:hover {
-    background-color: green;
-}
-
-#megaContainer {
-    display: flex;
-    margin-top: 50px;
-}
-
-.sidePanel {
-    margin-left: 8px;
-    height: auto;
-    width: 30px;
-    background: linear-gradient(-45deg, transparent 25%, #2863f7 25%, #008adf 50%, transparent 50%, transparent 75%, #00f2ee 75%);
-    background-size: 15px 15px;
-    -webkit-animation: barberpole 1.5s infinite linear;
-    animation: barberpole 1.5s infinite linear;
+	background-color: green;
 }
 
 @keyframes barberpole {
-    from {
-        background-position: 0%;
-    }
+	from {
+		background-position: 0%;
+	}
 
-    to {
-        background-position: 200%;
-    }
-}
-
-.rules {
-    padding: 5px;
-    width: 650px;
-    color: crimson;
-    border: 2px purple solid;
-    border-radius: 10px;
+	to {
+		background-position: 200%;
+	}
 }
 
 #time {
-    color: white;
-    padding-left: 90px;
+	color: white;
+	padding-left: 90px;
 }
 
 #time .col-sm-7 {
-    font-size: 2em;
-    padding-right: 0;
+	font-size: 2em;
+	padding-right: 0;
 }
 
 #time .col-sm-5 {
-    padding: 0;
+	padding: 0;
 }
 
 .timer {
-    animation: time 1s infinite;
-    color: red;
-    margin-right: 10px;
+	animation: time 1s infinite;
+	color: red;
+	margin-right: 10px;
 }
 
 .seconds {
-    color: red;
-    margin-right: 10px;
+	color: red;
+	margin-right: 10px;
 }
 
 @keyframes time {
-    0% {
-        transform: scale(1);
-    }
+	0% {
+		transform: scale(1);
+	}
 
-    50% {
-        transform: scale(1.2);
-    }
+	50% {
+		transform: scale(1.2);
+	}
 
-    100% {
-        transform: scale(1);
-    }
+	100% {
+		transform: scale(1);
+	}
 }

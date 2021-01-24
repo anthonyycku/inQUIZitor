@@ -117,8 +117,7 @@ body {
 	box-shadow: 0px 0px 10px 2px #ff920341;
 }
 
-.bg-btn-color:focus,
-.bg-btn-color:hover {
+.bg-btn-color:focus {
 	outline: none;
 }
 
@@ -140,4 +139,8 @@ body {
 
 .btn-dark:hover {
 	background-color: green;
+}
+
+.line-height {
+	line-height: 30px;
 }

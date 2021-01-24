@@ -24,7 +24,7 @@ class App extends React.Component {
 	render() {
 		const { points } = this.state;
 
-		if (points > -1 && points < 10) {
+		if (points > -1 && points < 1) {
 			return (
 				<Game
 					incrementPoints={this.incrementPoints}
@@ -34,7 +34,7 @@ class App extends React.Component {
 					playAgain={this.playAgain}
 				/>
 			);
-		} else if (points === 10) {
+		} else if (points === 1) {
 			return <Winner playAgain={this.playAgain} />;
 		} else {
 			return <Loser playAgain={this.playAgain} />;

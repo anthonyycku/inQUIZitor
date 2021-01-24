@@ -201,7 +201,7 @@ class Game extends React.Component {
 						</div>
 						<p className='text-center ylw-text-color'>
 							{this.state.quiz.question ? (
-								<h3>{this.state.quiz.question}</h3>
+								<h3 className='line-height'>{this.state.quiz.question}</h3>
 							) : (
 								<h4>Are you ready to be inQUIZitive?</h4>
 							)}
@@ -226,16 +226,19 @@ class Game extends React.Component {
 							</button>
 						)}
 						{gameStart ? null : (
+							// <div className='mt-3 d-flex justify-content-center'>
+							// 	<button
+							// 		disabled
+							// 		onClick={() => this.setPage('edit')}
+							// 		className='bg-btn-color ylw-text-color px-4 m-2 py-0'>
+							// 		Edit
+							// 	</button>
+							// </div>
 							<div className='mt-3 d-flex justify-content-center'>
 								<button
 									onClick={() => this.setPage('create')}
-									className='btn bg-btn-color ylw-text-color px-2 m-1 py-0'>
+									className='bg-btn-color ylw-text-color px-4 m-2 py-0'>
 									Create
-								</button>
-								<button
-									onClick={() => this.setPage('edit')}
-									className='btn bg-btn-color ylw-text-color px-2 m-1 py-0'>
-									Edit
 								</button>
 							</div>
 						)}
